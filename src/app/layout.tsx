@@ -12,6 +12,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Revyn",
   description: "AI-powered pull request reviews",
+  icons: {
+    icon: "./logo.png"
+  }
 };
 
 export default function RootLayout({
