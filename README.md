@@ -2,7 +2,7 @@
 
 Next.js dashboard for Revyn, an AI-powered pull request reviewer. Users sign in, connect their GitHub account via the Revyn GitHub App, and see a history of AI-reviewed pull requests.
 
-Live: https://revyn-dev.vercel.app
+Live: revyn-review.vercel.app
 Server/API: https://revyn-server.onrender.com
 
 ## Tech stack
