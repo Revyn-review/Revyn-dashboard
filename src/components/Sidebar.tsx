@@ -34,24 +34,23 @@ export function Sidebar({
   return (
     <>
       {open && (
-        <div
-          className="fixed inset-0 bg-black/30 z-30 lg:hidden"
-          onClick={onClose}
-        />
+        <div className="fixed inset-0 bg-black/30 z-30 lg:hidden" onClick={onClose} />
       )}
 
       <aside
         className={`
           shrink-0 border-r border-gray-200 bg-white h-screen flex flex-col
           fixed lg:sticky top-0 z-40 transition-all duration-200
+          w-60
           ${open ? "translate-x-0" : "-translate-x-full lg:translate-x-0"}
-          ${collapsed ? "lg:w-18" : "w-60"}
+          ${collapsed ? "lg:w-18" : "lg:w-60"}
         `}
       >
         <div className="px-5 py-5 border-b border-gray-100 flex items-center justify-between">
-          {!collapsed && <span className="text-lg font-semibold">Revyn</span>}
+          <span className={`text-lg font-semibold ${collapsed ? "lg:hidden" : ""}`}>
+            Revyn
+          </span>
 
-          {/* Desktop collapse toggle */}
           <button
             onClick={onToggleCollapse}
             className="hidden lg:block text-gray-400 hover:text-black"
@@ -60,11 +59,7 @@ export function Sidebar({
             <IconSquareToggle size={20} />
           </button>
 
-          {/* Mobile close */}
-          <button
-            onClick={onClose}
-            className="lg:hidden text-gray-400 hover:text-black"
-          >
+          <button onClick={onClose} className="lg:hidden text-gray-400 hover:text-black">
             <IconX size={20} />
           </button>
         </div>
@@ -79,11 +74,11 @@ export function Sidebar({
                   href={item.href}
                   onClick={onClose}
                   className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                    collapsed ? "justify-center" : ""
+                    collapsed ? "lg:justify-center" : ""
                   } ${isActive ? "bg-black text-white" : "text-gray-600 hover:bg-gray-100"}`}
                 >
                   <Icon size={18} className="shrink-0" />
-                  {!collapsed && item.label}
+                  <span className={collapsed ? "lg:hidden" : ""}>{item.label}</span>
                 </Link>
 
                 {collapsed && (
@@ -101,11 +96,11 @@ export function Sidebar({
             <a
               href="https://github.com/apps/revyn-dev/installations/new"
               className={`flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium bg-gray-100 text-gray-800 hover:bg-gray-200 ${
-                collapsed ? "justify-center" : ""
+                collapsed ? "lg:justify-center" : ""
               }`}
             >
               <IconBrandGithub size={18} className="shrink-0" />
-              {!collapsed && "Connect a repo"}
+              <span className={collapsed ? "lg:hidden" : ""}>Connect a repo</span>
             </a>
             {collapsed && (
               <span className="hidden lg:group-hover:block absolute left-full ml-2 top-1/2 -translate-y-1/2 whitespace-nowrap bg-black text-white text-xs px-2 py-1 rounded-md z-50">
