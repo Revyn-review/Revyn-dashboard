@@ -1,4 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
+import Link from "next/link";
 import { IconAlertTriangle, IconCircleCheck, IconGitPullRequest } from "@tabler/icons-react";
 
 const SERVER_URL = process.env.SERVER_URL ?? "http://localhost:4000";
@@ -39,9 +40,10 @@ export default async function ReviewsPage() {
       ) : (
         <div className="space-y-3">
           {reviews.map((review) => (
-            <div
+            <Link
               key={review.id}
-              className="bg-white border border-gray-200 rounded-lg p-5 flex items-start justify-between gap-4"
+              href={`/reviews/${review.id}`}
+              className="bg-white border border-gray-200 rounded-lg p-5 flex items-start justify-between gap-4 hover:border-gray-300 hover:shadow-sm transition-all"
             >
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
@@ -64,7 +66,7 @@ export default async function ReviewsPage() {
                   <IconCircleCheck size={16} className="text-green-500" />
                 )}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}
