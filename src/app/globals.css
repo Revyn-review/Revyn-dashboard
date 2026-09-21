@@ -29,3 +29,4 @@ body {
 @theme {
   --font-sans: var(--font-inter);
 }
+@plugin "tailwindcss-animate";

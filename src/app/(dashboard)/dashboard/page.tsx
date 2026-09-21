@@ -4,6 +4,7 @@ import {
   IconAlertTriangle,
   IconCircleCheck,
 } from "@tabler/icons-react";
+import { ConnectToast } from "@/components/ConnectToast";
 
 const SERVER_URL = process.env.SERVER_URL ?? "http://localhost:4000";
 
@@ -39,6 +40,7 @@ export default async function OverviewPage() {
 
   return (
     <div className="px-8 py-8">
+      <ConnectToast />
       <h1 className="text-2xl font-semibold mb-1">Overview</h1>
       <p className="text-sm text-gray-500 mb-8">
         Your AI review activity at a glance
@@ -97,8 +99,15 @@ function StatCard({
 }
 
 function ReviewRow({ review }: { review: Review }) {
+  const prUrl = `https://github.com/${review.repoFullName}/pull/${review.prNumber}`;
+
   return (
-    <div className="bg-white border border-gray-200 rounded-lg p-5 flex items-start justify-between gap-4">
+    <a
+      href={prUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white border border-gray-200 rounded-lg p-5 flex items-start justify-between gap-4 hover:border-gray-300 hover:shadow-sm transition-all"
+    >
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2 text-xs text-gray-400 mb-1">
           <span>{review.repoFullName}</span>
@@ -112,15 +121,13 @@ function ReviewRow({ review }: { review: Review }) {
         {review.issuesFound > 0 ? (
           <>
             <IconAlertTriangle size={16} className="text-amber-500" />
-            <span className="text-amber-600 font-medium">
-              {review.issuesFound}
-            </span>
+            <span className="text-amber-600 font-medium">{review.issuesFound}</span>
           </>
         ) : (
           <IconCircleCheck size={16} className="text-green-500" />
         )}
       </div>
-    </div>
+    </a>
   );
 }
 
