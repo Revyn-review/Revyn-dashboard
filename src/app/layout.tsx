@@ -10,11 +10,19 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Revyn",
-  description: "AI-powered pull request reviews",
+  title: "Revyn — AI Code Reviewer",
+  description:
+    "Revyn uses AI to review GitHub pull requests and help developers catch potential bugs, security risks, and logic issues before merging.",
   icons: {
-    icon: "./logo.png"
-  }
+    icon: "/logo.png",
+  },
+  openGraph: {
+    title: "Revyn — AI Code Reviewer",
+    description:
+      "AI-powered code reviews, instantly. Catch potential issues before your code gets merged.",
+    siteName: "Revyn",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
