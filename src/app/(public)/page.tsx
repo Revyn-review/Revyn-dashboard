@@ -26,8 +26,8 @@ function MacWindow({
   alt: string;
 }) {
   return (
-    <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0d0d0c] shadow-2xl shadow-orange-950/20">
-      <div className="flex items-center justify-between border-b border-white/[0.06] bg-[#11100f] px-4 py-3">
+    <div className="group overflow-hidden rounded-2xl  p-2 bg-white/5 shadow-2xl shadow-orange-950/20 flex flex-col gap-1">
+      <div className="flex items-center justify-between border-b border-white/6 bg-[#11100f] px-4 py-3 rounded-xl">
         <div className="flex items-center gap-1.5">
           <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
@@ -43,14 +43,12 @@ function MacWindow({
       </div>
 
       <div className="relative">
-        <div className="absolute inset-0 bg-orange-500/[0.035] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
         <Image
           src={src}
           alt={alt}
           width={1600}
           height={1000}
-          className="relative h-auto w-full"
+          className="relative h-auto w-full rounded-xl"
           priority
         />
       </div>
@@ -80,36 +78,29 @@ export default function LandingPage() {
           href="/"
           className="group flex items-center gap-2.5"
         >
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-orange-400/20 bg-orange-500/10 shadow-lg shadow-orange-500/10 transition-all group-hover:border-orange-400/30 group-hover:bg-orange-500/15">
-            <IconCode
-              size={16}
-              className="text-orange-300"
-            />
-          </div>
-
-          <span className="text-[15px] font-semibold tracking-tight">
-            Revyn
+          <span className="text-lg sm:text-xl font-semibold font-sans tracking-tigh">
+            Revyn<span className="text-orange-500">.</span>dev
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 text-sm text-zinc-500 md:flex">
+        <div className="hidden items-center gap-8 text-sm text-zinc-400 md:flex">
           <Link
             href="#features"
-            className="transition-colors hover:text-orange-300"
+            className="transition-colors hover:text-zinc-100"
           >
             Features
           </Link>
 
           <Link
             href="#how-it-works"
-            className="transition-colors hover:text-orange-300"
+            className="transition-colors hover:text-zinc-100"
           >
             How it works
           </Link>
 
           <Link
             href="#demo"
-            className="transition-colors hover:text-orange-300"
+            className="transition-colors hover:text-zinc-100"
           >
             Demo
           </Link>
@@ -126,11 +117,11 @@ export default function LandingPage() {
 
             <Link
               href="/sign-up"
-              className="group inline-flex items-center gap-2 rounded-lg border border-orange-400/20 bg-orange-500 px-4 py-2 text-sm font-medium text-white shadow-lg shadow-orange-500/20 transition-all hover:bg-orange-400 hover:shadow-orange-500/30"
+              className="group inline-flex items-center gap-2 rounded-full  bg-linear-to-b from-orange-300 via-orange-400 to-orange-600 px-4 py-2 text-sm font-medium text-white transition-all"
             >
               Get started
               <IconArrowRight
-                size={14}
+                size={16}
                 className="transition-transform group-hover:translate-x-0.5"
               />
             </Link>
@@ -152,30 +143,30 @@ export default function LandingPage() {
       </nav>
 
       {/* HERO */}
-      <section className="relative px-6 pt-24 md:pt-32">
+      <section className="relative px-2 sm:px-6 pt-12 md:pt-24">
         <div className="mx-auto max-w-4xl text-center">
 
           {/* Badge */}
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-orange-400/15 bg-orange-500/[0.07] px-3 py-1.5 text-xs font-medium text-orange-300 shadow-[0_0_30px_rgba(249,115,22,0.06)]">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium text-zinc-300">
             <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-orange-400 opacity-60" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-orange-400" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-green-500" />
             </span>
 
-            AI-powered code review
+            Actively maintaining
           </div>
 
           {/* Heading */}
-          <h1 className="text-balance text-5xl font-semibold leading-[1.05] tracking-[-0.04em] sm:text-6xl md:text-7xl">
-            Code reviews,
+          <h1 className="text-balance text-5xl font-medium leading-[1.05] tracking-[-0.04em] sm:text-6xl md:text-7xl">
+            Code <span className="italic bg-linear-to-b from-orange-300 via-orange-400 to-orange-600 bg-clip-text text-transparent ">reviews</span>,
             <br />
 
-            <span className="text-gradient">
-              without the bottleneck.
+            <span className="">
+              without the <span className="italic">bottleneck</span>.
             </span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
+          <p className="mx-auto mt-7 max-w-xs sm:max-w-2xl text-sm sm:text-base leading-7 text-zinc-400 ">
             Revyn reviews every pull request automatically.
             Catch bugs, security issues, and risky changes before
             they reach production.
@@ -185,52 +176,52 @@ export default function LandingPage() {
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <Link
               href="/sign-up"
-              className="group inline-flex items-center gap-2 rounded-lg bg-orange-500 px-5 py-3 text-sm font-semibold text-white shadow-xl shadow-orange-500/20 transition-all hover:bg-orange-400 hover:shadow-orange-500/30"
+              className="group inline-flex items-center gap-2   rounded-full  bg-linear-to-b from-orange-300 via-orange-500 to-orange-600 px-5 py-3 text-sm font-medium text-white transition-all"
             >
-              <IconBrandGithub size={17} />
+              <IconBrandGithub size={16} />
 
               Connect GitHub
 
               <IconArrowRight
-                size={15}
+                size={16}
                 className="transition-transform group-hover:translate-x-0.5"
               />
             </Link>
 
             <a
               href="#demo"
-              className="inline-flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.03] px-5 py-3 text-sm font-medium text-zinc-300 transition-all hover:border-orange-400/20 hover:bg-orange-500/[0.05] hover:text-orange-200"
+              className="inline-flex items-center gap-2 rounded-full  px-5 py-3 text-sm font-medium text-zinc-300 hover:text-zinc-100 transition-all"
             >
               See how it works
             </a>
           </div>
 
           {/* Trust */}
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-zinc-600">
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-white">
             <span className="flex items-center gap-1.5">
               <IconCircleCheckFilled
                 size={13}
-                className="text-emerald-400/70"
+                className="text-orange-400"
               />
               GitHub native
             </span>
 
-            <span className="hidden h-3 w-px bg-white/[0.08] sm:block" />
+            <span className="hidden h-3 w-px bg-white/8 sm:block" />
 
             <span className="flex items-center gap-1.5">
               <IconCircleCheckFilled
                 size={13}
-                className="text-emerald-400/70"
+                className="text-orange-400"
               />
               No code changes
             </span>
 
-            <span className="hidden h-3 w-px bg-white/[0.08] sm:block" />
+            <span className="hidden h-3 w-px bg-white/8 sm:block" />
 
             <span className="flex items-center gap-1.5">
               <IconCircleCheckFilled
                 size={13}
-                className="text-emerald-400/70"
+                className="text-orange-400"
               />
               Automatic reviews
             </span>
@@ -243,7 +234,7 @@ export default function LandingPage() {
           className="mx-auto mt-20 max-w-5xl"
         >
           <div className="relative">
-            <div className="absolute -inset-10 -z-10 rounded-full bg-orange-600/[0.09] blur-[110px]" />
+            <div className="absolute -inset-10 -z-10 rounded-full bg-orange-600/9 blur-[110px]" />
 
             <MacWindow
               src="/revyn-demo.png"
@@ -258,7 +249,7 @@ export default function LandingPage() {
         id="features"
         className="mx-auto max-w-5xl px-6 py-24"
       >
-        <div className="grid grid-cols-1 divide-y divide-white/[0.06] border-y border-white/[0.06] sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        <div className="grid grid-cols-1 divide-y divide-white/6 border-y border-white/6 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           <Feature
             icon={<IconMessageCircle size={19} />}
             title="Inline comments"
